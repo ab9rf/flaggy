@@ -57,7 +57,7 @@ if (not mlp_pickle.exists()):
 	featmat = pca.transform(mat)
 	(ns,nf) = featmat.shape
 			
-	mlp = MLPRegressor(verbose=True, hidden_layer_sizes=(ns,) )
+	mlp = MLPRegressor(verbose=True, hidden_layer_sizes=(ns,ns) )
 	mlp.fit (featmat, mat)
 	dump((mlp, pca, featmat), mlp_pickle)
 else:
